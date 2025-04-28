@@ -44,8 +44,12 @@ ENV/
 .env.local
 .env.*.local
 
-# Salesforce credentials
+# Salesforce credentials and sensitive configs
 salesforce_config.py
+local_settings.py
+*.pem
+*.key
+secrets.json
 
 # OS
 .DS_Store
