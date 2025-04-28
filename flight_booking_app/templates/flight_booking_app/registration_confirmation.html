@@ -1,0 +1,55 @@
+{% extends "flight_booking_app/base.html" %}
+
+{% block title %}Registration Submitted - Ethiopian Airlines Corporate Sales{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow">
+                <div class="card-body text-center">
+                    <div class="mb-4">
+                        <i class="fas fa-check-circle text-success" style="font-size: 4rem;"></i>
+                    </div>
+                    <h2 class="card-title mb-4">Registration Submitted Successfully</h2>
+                    <div class="alert alert-success">
+                        <h5>Thank you for choosing Ethiopian Airlines Corporate Sales!</h5>
+                        <p>Your registration for <strong>{{ company_name }}</strong> has been received.</p>
+                    </div>
+                    
+                    <div class="my-4">
+                        <h4>What happens next?</h4>
+                        <ol class="text-start">
+                            <li>Our corporate sales team will review your application</li>
+                            <li>We will verify your company details</li>
+                            <li>You will receive an email at <strong>{{ email }}</strong> within 1-2 business days</li>
+                            <li>Once approved, we will provide your login credentials</li>
+                        </ol>
+                    </div>
+
+                    <div class="alert alert-info">
+                        <p class="mb-0">
+                            <i class="fas fa-info-circle"></i>
+                            Please note that all corporate accounts require internal approval before activation.
+                            This helps us ensure the highest level of service for our corporate clients.
+                        </p>
+                    </div>
+
+                    <div class="mt-4">
+                        <p>Have questions? Contact our corporate sales team:</p>
+                        <ul class="list-unstyled">
+                            <li>Email: corporate@ethiopianairlines.com</li>
+                            <li>Phone: +251 11 517 8907</li>
+                            <li>Hours: Monday - Friday, 9:00 AM - 5:00 PM (EAT)</li>
+                        </ul>
+                    </div>
+
+                    <div class="mt-4">
+                        <a href="{% url 'home' %}" class="btn btn-primary">Return to Homepage</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} 

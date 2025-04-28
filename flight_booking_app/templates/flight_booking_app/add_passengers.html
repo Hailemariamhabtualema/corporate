@@ -1,0 +1,62 @@
+{% extends 'flight_booking_app/base.html' %}
+
+{% block title %}Add Passengers - Flight Booking System{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="mb-0">Add Passenger Details</h4>
+            </div>
+            <div class="card-body">
+                <div class="alert alert-info">
+                    <p>Please add details for passenger {{ booking.passengers.count|add:1 }} of {{ booking.number_of_passengers }}</p>
+                </div>
+
+                <div class="mb-4">
+                    <h5>Flight Details</h5>
+                    <p>
+                        <strong>Flight:</strong> {{ booking.flight.flight_number }}<br>
+                        <strong>From:</strong> {{ booking.flight.departure_airport }}<br>
+                        <strong>To:</strong> {{ booking.flight.arrival_airport }}<br>
+                        <strong>Departure:</strong> {{ booking.flight.departure_time|date:"M d, Y H:i" }}<br>
+                        <strong>Total Price:</strong> ${{ booking.total_price }}
+                    </p>
+                </div>
+
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="id_first_name" class="form-label">First Name</label>
+                            <input type="text" class="form-control" id="id_first_name" name="first_name" required>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="id_last_name" class="form-label">Last Name</label>
+                            <input type="text" class="form-control" id="id_last_name" name="last_name" required>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="id_date_of_birth" class="form-label">Date of Birth</label>
+                            <input type="date" class="form-control" id="id_date_of_birth" name="date_of_birth" required>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="id_passport_number" class="form-label">Passport Number</label>
+                            <input type="text" class="form-control" id="id_passport_number" name="passport_number" required>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                        {% if remaining_passengers > 1 %}
+                        Add Next Passenger
+                        {% else %}
+                        Complete Booking
+                        {% endif %}
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} 

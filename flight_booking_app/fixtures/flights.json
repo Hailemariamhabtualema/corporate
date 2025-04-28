@@ -1,0 +1,82 @@
+[
+    {
+        "model": "flight_booking_app.flight",
+        "pk": 1,
+        "fields": {
+            "flight_number": "ET701",
+            "departure_airport": 1,
+            "arrival_airport": 2,
+            "departure_time": "2025-04-29T08:00:00Z",
+            "arrival_time": "2025-04-29T12:30:00Z",
+            "price": 500.00,
+            "available_seats": 150,
+            "total_seats": 200,
+            "distance": 4000,
+            "base_miles": 4000
+        }
+    },
+    {
+        "model": "flight_booking_app.flight",
+        "pk": 2,
+        "fields": {
+            "flight_number": "ET702",
+            "departure_airport": 1,
+            "arrival_airport": 2,
+            "departure_time": "2025-04-29T14:00:00Z",
+            "arrival_time": "2025-04-29T18:30:00Z",
+            "price": 550.00,
+            "available_seats": 180,
+            "total_seats": 200,
+            "distance": 4000,
+            "base_miles": 4000
+        }
+    },
+    {
+        "model": "flight_booking_app.flight",
+        "pk": 3,
+        "fields": {
+            "flight_number": "ET703",
+            "departure_airport": 1,
+            "arrival_airport": 3,
+            "departure_time": "2025-04-29T09:00:00Z",
+            "arrival_time": "2025-04-29T11:00:00Z",
+            "price": 300.00,
+            "available_seats": 120,
+            "total_seats": 150,
+            "distance": 1200,
+            "base_miles": 1200
+        }
+    },
+    {
+        "model": "flight_booking_app.flight",
+        "pk": 4,
+        "fields": {
+            "flight_number": "ET704",
+            "departure_airport": 1,
+            "arrival_airport": 4,
+            "departure_time": "2025-04-29T10:00:00Z",
+            "arrival_time": "2025-04-29T13:00:00Z",
+            "price": 400.00,
+            "available_seats": 100,
+            "total_seats": 150,
+            "distance": 2000,
+            "base_miles": 2000
+        }
+    },
+    {
+        "model": "flight_booking_app.flight",
+        "pk": 5,
+        "fields": {
+            "flight_number": "ET705",
+            "departure_airport": 1,
+            "arrival_airport": 5,
+            "departure_time": "2025-04-29T11:00:00Z",
+            "arrival_time": "2025-04-29T15:00:00Z",
+            "price": 450.00,
+            "available_seats": 80,
+            "total_seats": 100,
+            "distance": 3000,
+            "base_miles": 3000
+        }
+    }
+] 

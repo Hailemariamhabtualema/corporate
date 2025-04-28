@@ -1,0 +1,57 @@
+[
+    {
+        "model": "flight_booking_app.route",
+        "pk": 1,
+        "fields": {
+            "departure_airport": 1,
+            "arrival_airport": 2,
+            "distance": 4000,
+            "duration": "04:30:00",
+            "base_price": 500.00
+        }
+    },
+    {
+        "model": "flight_booking_app.route",
+        "pk": 2,
+        "fields": {
+            "departure_airport": 1,
+            "arrival_airport": 3,
+            "distance": 1200,
+            "duration": "02:00:00",
+            "base_price": 300.00
+        }
+    },
+    {
+        "model": "flight_booking_app.route",
+        "pk": 3,
+        "fields": {
+            "departure_airport": 1,
+            "arrival_airport": 4,
+            "distance": 2000,
+            "duration": "03:00:00",
+            "base_price": 400.00
+        }
+    },
+    {
+        "model": "flight_booking_app.route",
+        "pk": 4,
+        "fields": {
+            "departure_airport": 1,
+            "arrival_airport": 5,
+            "distance": 3000,
+            "duration": "04:00:00",
+            "base_price": 450.00
+        }
+    },
+    {
+        "model": "flight_booking_app.route",
+        "pk": 5,
+        "fields": {
+            "departure_airport": 2,
+            "arrival_airport": 3,
+            "distance": 2800,
+            "duration": "03:30:00",
+            "base_price": 350.00
+        }
+    }
+] 

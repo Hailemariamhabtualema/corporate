@@ -1,0 +1,41 @@
+[
+    {
+        "model": "flight_booking_app.user",
+        "pk": 1,
+        "fields": {
+            "username": "john_doe",
+            "email": "john.doe@example.com",
+            "first_name": "John",
+            "last_name": "Doe",
+            "loyalty_program": 1,
+            "accumulated_miles": 30000,
+            "is_active": true
+        }
+    },
+    {
+        "model": "flight_booking_app.user",
+        "pk": 2,
+        "fields": {
+            "username": "jane_smith",
+            "email": "jane.smith@example.com",
+            "first_name": "Jane",
+            "last_name": "Smith",
+            "loyalty_program": 2,
+            "accumulated_miles": 75000,
+            "is_active": true
+        }
+    },
+    {
+        "model": "flight_booking_app.user",
+        "pk": 3,
+        "fields": {
+            "username": "mike_johnson",
+            "email": "mike.johnson@example.com",
+            "first_name": "Mike",
+            "last_name": "Johnson",
+            "loyalty_program": 3,
+            "accumulated_miles": 150000,
+            "is_active": true
+        }
+    }
+] 

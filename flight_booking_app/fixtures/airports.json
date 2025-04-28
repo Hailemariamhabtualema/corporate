@@ -1,0 +1,132 @@
+[
+    {
+        "model": "flight_booking_app.airport",
+        "pk": 1,
+        "fields": {
+            "code": "ADD",
+            "name": "Addis Ababa Bole International Airport",
+            "city": "Addis Ababa",
+            "country": "Ethiopia"
+        }
+    },
+    {
+        "model": "flight_booking_app.airport",
+        "pk": 2,
+        "fields": {
+            "code": "JNB",
+            "name": "O.R. Tambo International Airport",
+            "city": "Johannesburg",
+            "country": "South Africa"
+        }
+    },
+    {
+        "model": "flight_booking_app.airport",
+        "pk": 3,
+        "fields": {
+            "code": "NBO",
+            "name": "Jomo Kenyatta International Airport",
+            "city": "Nairobi",
+            "country": "Kenya"
+        }
+    },
+    {
+        "model": "flight_booking_app.airport",
+        "pk": 4,
+        "fields": {
+            "code": "CAI",
+            "name": "Cairo International Airport",
+            "city": "Cairo",
+            "country": "Egypt"
+        }
+    },
+    {
+        "model": "flight_booking_app.airport",
+        "pk": 5,
+        "fields": {
+            "code": "DXB",
+            "name": "Dubai International Airport",
+            "city": "Dubai",
+            "country": "United Arab Emirates"
+        }
+    },
+    {
+        "model": "flight_booking_app.airport",
+        "pk": 6,
+        "fields": {
+            "code": "JFK",
+            "name": "John F. Kennedy International Airport",
+            "city": "New York",
+            "country": "United States"
+        }
+    },
+    {
+        "model": "flight_booking_app.airport",
+        "pk": 7,
+        "fields": {
+            "code": "LHR",
+            "name": "London Heathrow Airport",
+            "city": "London",
+            "country": "United Kingdom"
+        }
+    },
+    {
+        "model": "flight_booking_app.airport",
+        "pk": 8,
+        "fields": {
+            "code": "SIN",
+            "name": "Singapore Changi Airport",
+            "city": "Singapore",
+            "country": "Singapore"
+        }
+    },
+    {
+        "model": "flight_booking_app.airport",
+        "pk": 9,
+        "fields": {
+            "code": "SYD",
+            "name": "Sydney Airport",
+            "city": "Sydney",
+            "country": "Australia"
+        }
+    },
+    {
+        "model": "flight_booking_app.airport",
+        "pk": 10,
+        "fields": {
+            "code": "CPT",
+            "name": "Cape Town International Airport",
+            "city": "Cape Town",
+            "country": "South Africa"
+        }
+    },
+    {
+        "model": "flight_booking_app.airport",
+        "pk": 11,
+        "fields": {
+            "code": "GRU",
+            "name": "São Paulo/Guarulhos International Airport",
+            "city": "São Paulo",
+            "country": "Brazil"
+        }
+    },
+    {
+        "model": "flight_booking_app.airport",
+        "pk": 12,
+        "fields": {
+            "code": "NRT",
+            "name": "Narita International Airport",
+            "city": "Tokyo",
+            "country": "Japan"
+        }
+    },
+    {
+        "model": "flight_booking_app.airport",
+        "pk": 13,
+        "fields": {
+            "code": "CDG",
+            "name": "Charles de Gaulle Airport",
+            "city": "Paris",
+            "country": "France"
+        }
+    }
+] 

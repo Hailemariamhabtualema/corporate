@@ -1,0 +1,32 @@
+[
+    {
+        "model": "flight_booking_app.loyaltyprogram",
+        "pk": 1,
+        "fields": {
+            "name": "Silver",
+            "miles_required": 25000,
+            "benefits": "Priority check-in, Extra baggage allowance, Lounge access on international flights",
+            "multiplier": 1.25
+        }
+    },
+    {
+        "model": "flight_booking_app.loyaltyprogram",
+        "pk": 2,
+        "fields": {
+            "name": "Gold",
+            "miles_required": 50000,
+            "benefits": "Priority boarding, Free seat selection, Lounge access on all flights, Free upgrades when available",
+            "multiplier": 1.5
+        }
+    },
+    {
+        "model": "flight_booking_app.loyaltyprogram",
+        "pk": 3,
+        "fields": {
+            "name": "Platinum",
+            "miles_required": 100000,
+            "benefits": "First class check-in, Unlimited lounge access, Free upgrades to business class, Dedicated customer service, Free companion ticket annually",
+            "multiplier": 2.0
+        }
+    }
+] 

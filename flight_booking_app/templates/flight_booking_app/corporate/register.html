@@ -1,0 +1,228 @@
+{% extends "flight_booking_app/base.html" %}
+
+{% block title %}Corporate Registration - Ethiopian Airlines Corporate Sales{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+            <div class="card shadow">
+                <div class="card-body">
+                    <h2 class="card-title text-center mb-4">Corporate Account Registration</h2>
+                    
+                    <div class="alert alert-info mb-4">
+                        <h5 class="alert-heading">Registration Process</h5>
+                        <p>Please complete the form below to register your company. After submission:</p>
+                        <ol>
+                            <li>Our team will review your application within 1-2 business days</li>
+                            <li>We will verify your company details and requirements</li>
+                            <li>Once approved, we will send your login credentials to your email</li>
+                        </ol>
+                    </div>
+
+                    {% if messages %}
+                    <div class="messages mb-4">
+                        {% for message in messages %}
+                        <div class="alert alert-{{ message.tags }}">
+                            {{ message }}
+                        </div>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+
+                    <form method="post" class="needs-validation" novalidate>
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h4 class="mb-3">Company Information</h4>
+                                <div class="mb-3">
+                                    {{ account_form.name.label_tag }}
+                                    {{ account_form.name }}
+                                    {% if account_form.name.errors %}
+                                    <div class="invalid-feedback d-block">
+                                        {{ account_form.name.errors }}
+                                    </div>
+                                    {% endif %}
+                                </div>
+
+                                <div class="mb-3">
+                                    {{ account_form.account_type.label_tag }}
+                                    {{ account_form.account_type }}
+                                    {% if account_form.account_type.errors %}
+                                    <div class="invalid-feedback d-block">
+                                        {{ account_form.account_type.errors }}
+                                    </div>
+                                    {% endif %}
+                                </div>
+
+                                <div class="mb-3">
+                                    {{ account_form.registration_number.label_tag }}
+                                    {{ account_form.registration_number }}
+                                    <small class="text-muted d-block">Optional - Will be assigned if not provided</small>
+                                    {% if account_form.registration_number.errors %}
+                                    <div class="invalid-feedback d-block">
+                                        {{ account_form.registration_number.errors }}
+                                    </div>
+                                    {% endif %}
+                                </div>
+
+                                <div class="mb-3">
+                                    {{ account_form.tin_number.label_tag }}
+                                    {{ account_form.tin_number }}
+                                    <small class="text-muted d-block">Optional - Will be assigned if not provided</small>
+                                    {% if account_form.tin_number.errors %}
+                                    <div class="invalid-feedback d-block">
+                                        {{ account_form.tin_number.errors }}
+                                    </div>
+                                    {% endif %}
+                                </div>
+
+                                <div class="mb-3">
+                                    {{ account_form.address.label_tag }}
+                                    {{ account_form.address }}
+                                    {% if account_form.address.errors %}
+                                    <div class="invalid-feedback d-block">
+                                        {{ account_form.address.errors }}
+                                    </div>
+                                    {% endif %}
+                                </div>
+
+                                <div class="mb-3">
+                                    {{ account_form.city.label_tag }}
+                                    {{ account_form.city }}
+                                    {% if account_form.city.errors %}
+                                    <div class="invalid-feedback d-block">
+                                        {{ account_form.city.errors }}
+                                    </div>
+                                    {% endif %}
+                                </div>
+
+                                <div class="mb-3">
+                                    {{ account_form.annual_travel_budget.label_tag }}
+                                    {{ account_form.annual_travel_budget }}
+                                    {% if account_form.annual_travel_budget.errors %}
+                                    <div class="invalid-feedback d-block">
+                                        {{ account_form.annual_travel_budget.errors }}
+                                    </div>
+                                    {% endif %}
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        {{ account_form.contract_start_date.label_tag }}
+                                        {{ account_form.contract_start_date }}
+                                        {% if account_form.contract_start_date.errors %}
+                                        <div class="invalid-feedback d-block">
+                                            {{ account_form.contract_start_date.errors }}
+                                        </div>
+                                        {% endif %}
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        {{ account_form.contract_end_date.label_tag }}
+                                        {{ account_form.contract_end_date }}
+                                        {% if account_form.contract_end_date.errors %}
+                                        <div class="invalid-feedback d-block">
+                                            {{ account_form.contract_end_date.errors }}
+                                        </div>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <h4 class="mb-3">Primary Contact Information</h4>
+                                <div class="mb-3">
+                                    {{ contact_form.username.label_tag }}
+                                    {{ contact_form.username }}
+                                    <small class="text-muted">This will be your username after approval</small>
+                                    {% if contact_form.username.errors %}
+                                    <div class="invalid-feedback d-block">
+                                        {{ contact_form.username.errors }}
+                                    </div>
+                                    {% endif %}
+                                </div>
+
+                                <div class="mb-3">
+                                    {{ contact_form.first_name.label_tag }}
+                                    {{ contact_form.first_name }}
+                                    {% if contact_form.first_name.errors %}
+                                    <div class="invalid-feedback d-block">
+                                        {{ contact_form.first_name.errors }}
+                                    </div>
+                                    {% endif %}
+                                </div>
+
+                                <div class="mb-3">
+                                    {{ contact_form.last_name.label_tag }}
+                                    {{ contact_form.last_name }}
+                                    {% if contact_form.last_name.errors %}
+                                    <div class="invalid-feedback d-block">
+                                        {{ contact_form.last_name.errors }}
+                                    </div>
+                                    {% endif %}
+                                </div>
+
+                                <div class="mb-3">
+                                    {{ contact_form.email.label_tag }}
+                                    {{ contact_form.email }}
+                                    <small class="text-muted">Your login credentials will be sent to this email</small>
+                                    {% if contact_form.email.errors %}
+                                    <div class="invalid-feedback d-block">
+                                        {{ contact_form.email.errors }}
+                                    </div>
+                                    {% endif %}
+                                </div>
+
+                                <div class="mb-3">
+                                    {{ contact_form.phone.label_tag }}
+                                    {{ contact_form.phone }}
+                                    {% if contact_form.phone.errors %}
+                                    <div class="invalid-feedback d-block">
+                                        {{ contact_form.phone.errors }}
+                                    </div>
+                                    {% endif %}
+                                </div>
+
+                                <div class="mb-3">
+                                    {{ contact_form.mobile.label_tag }}
+                                    {{ contact_form.mobile }}
+                                    <small class="text-muted">Optional</small>
+                                    {% if contact_form.mobile.errors %}
+                                    <div class="invalid-feedback d-block">
+                                        {{ contact_form.mobile.errors }}
+                                    </div>
+                                    {% endif %}
+                                </div>
+
+                                <div class="mb-3">
+                                    {{ contact_form.position.label_tag }}
+                                    {{ contact_form.position }}
+                                    {% if contact_form.position.errors %}
+                                    <div class="invalid-feedback d-block">
+                                        {{ contact_form.position.errors }}
+                                    </div>
+                                    {% endif %}
+                                </div>
+
+                                <div class="mb-3">
+                                    {{ contact_form.department.label_tag }}
+                                    {{ contact_form.department }}
+                                    {% if contact_form.department.errors %}
+                                    <div class="invalid-feedback d-block">
+                                        {{ contact_form.department.errors }}
+                                    </div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="text-center mt-4">
+                            <button type="submit" class="btn btn-primary btn-lg">Submit Registration</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} 

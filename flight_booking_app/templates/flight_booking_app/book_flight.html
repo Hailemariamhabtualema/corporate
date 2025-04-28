@@ -1,0 +1,60 @@
+{% extends 'flight_booking_app/base.html' %}
+
+{% block title %}Book Flight - Flight Booking System{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="mb-0">Book Flight: {{ flight.flight_number }}</h4>
+            </div>
+            <div class="card-body">
+                <div class="row mb-4">
+                    <div class="col-md-6">
+                        <h5>Flight Details</h5>
+                        <p>
+                            <strong>From:</strong> {{ flight.departure_airport }}<br>
+                            <strong>To:</strong> {{ flight.arrival_airport }}<br>
+                            <strong>Departure:</strong> {{ flight.departure_time|date:"M d, Y H:i" }}<br>
+                            <strong>Arrival:</strong> {{ flight.arrival_time|date:"M d, Y H:i" }}<br>
+                            <strong>Price per seat:</strong> ${{ flight.price }}<br>
+                            <strong>Available seats:</strong> {{ flight.available_seats }}
+                        </p>
+                    </div>
+                    <div class="col-md-6">
+                        <h5>Booking Summary</h5>
+                        <p>
+                            <strong>Total Price:</strong> $<span id="total-price">{{ flight.price }}</span><br>
+                            <strong>Selected Seats:</strong> <span id="selected-seats">1</span>
+                        </p>
+                    </div>
+                </div>
+
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="number_of_passengers" class="form-label">Number of Passengers</label>
+                        <input type="number" class="form-control" id="number_of_passengers" 
+                               name="number_of_passengers" min="1" max="{{ flight.available_seats }}" 
+                               value="1" required>
+                        <div class="form-text">Maximum {{ flight.available_seats }} seats available</div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Continue to Passenger Details</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+document.getElementById('number_of_passengers').addEventListener('change', function() {
+    const pricePerSeat = {{ flight.price }};
+    const selectedSeats = this.value;
+    const totalPrice = pricePerSeat * selectedSeats;
+    
+    document.getElementById('total-price').textContent = totalPrice.toFixed(2);
+    document.getElementById('selected-seats').textContent = selectedSeats;
+});
+</script>
+{% endblock %} 

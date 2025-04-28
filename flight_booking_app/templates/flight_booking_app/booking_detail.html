@@ -1,0 +1,70 @@
+{% extends 'flight_booking_app/base.html' %}
+
+{% block title %}Booking Details - Flight Booking System{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="mb-0">Booking Confirmation</h4>
+            </div>
+            <div class="card-body">
+                <div class="alert alert-success">
+                    <h5 class="alert-heading">Booking Confirmed!</h5>
+                    <p>Your booking has been successfully confirmed. Below are the details of your reservation.</p>
+                </div>
+
+                <div class="row mb-4">
+                    <div class="col-md-6">
+                        <h5>Flight Details</h5>
+                        <p>
+                            <strong>Flight Number:</strong> {{ booking.flight.flight_number }}<br>
+                            <strong>From:</strong> {{ booking.flight.departure_airport }}<br>
+                            <strong>To:</strong> {{ booking.flight.arrival_airport }}<br>
+                            <strong>Departure:</strong> {{ booking.flight.departure_time|date:"M d, Y H:i" }}<br>
+                            <strong>Arrival:</strong> {{ booking.flight.arrival_time|date:"M d, Y H:i" }}
+                        </p>
+                    </div>
+                    <div class="col-md-6">
+                        <h5>Booking Summary</h5>
+                        <p>
+                            <strong>Booking Reference:</strong> #{{ booking.id }}<br>
+                            <strong>Booking Date:</strong> {{ booking.booking_date|date:"M d, Y" }}<br>
+                            <strong>Number of Passengers:</strong> {{ booking.number_of_passengers }}<br>
+                            <strong>Total Price:</strong> ${{ booking.total_price }}
+                        </p>
+                    </div>
+                </div>
+
+                <h5>Passenger Details</h5>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Date of Birth</th>
+                                <th>Passport Number</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for passenger in booking.passengers.all %}
+                            <tr>
+                                <td>{{ passenger.first_name }} {{ passenger.last_name }}</td>
+                                <td>{{ passenger.date_of_birth|date:"M d, Y" }}</td>
+                                <td>{{ passenger.passport_number }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="mt-4">
+                    <a href="{% url 'my_bookings' %}" class="btn btn-primary">View All Bookings</a>
+                    <a href="{% url 'home' %}" class="btn btn-secondary">Back to Home</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} 

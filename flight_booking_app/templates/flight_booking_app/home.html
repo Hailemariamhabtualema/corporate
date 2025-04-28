@@ -1,0 +1,169 @@
+{% extends "flight_booking_app/base.html" %}
+{% load static %}
+
+{% block title %}Home - Ethiopian Airlines Corporate Sales{% endblock %}
+
+{% block content %}
+<div class="hero-section bg-primary text-white py-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <h1 class="display-4">Ethiopian Airlines Corporate Sales</h1>
+                <p class="lead">Your Trusted Partner in Corporate Travel Management</p>
+                <p>Join Ethiopia's flag carrier and experience unparalleled service for your business travel needs.</p>
+                {% if not user.is_authenticated %}
+                    <a href="#register" class="btn btn-light btn-lg mt-3">Register Your Company</a>
+                {% else %}
+                    <a href="{% url 'search_flights' %}" class="btn btn-light btn-lg mt-3">Book Flights</a>
+                {% endif %}
+            </div>
+            <div class="col-lg-6">
+                <img src="https://corporate.ethiopianairlines.com/images/default-source/a350-1000/picture172da4f8ff135478b839a5ec1dfab2532.jpg?sfvrsn=3b1449c_1" alt="Ethiopian Airlines" class="img-fluid rounded shadow">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container my-5">
+    {% if user.is_authenticated %}
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card shadow">
+                <div class="card-body">
+                    <h3>Search Flights</h3>
+                    <form method="get" action="{% url 'search_flights' %}">
+                        {{ form.as_p }}
+                        <button type="submit" class="btn btn-primary">Search Flights</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card shadow">
+                <div class="card-body">
+                    <h3>Recent Bookings</h3>
+                    {% if recent_bookings %}
+                        <ul class="list-unstyled">
+                        {% for booking in recent_bookings %}
+                            <li class="mb-2">
+                                <strong>{{ booking.flight.flight_number }}</strong>
+                                <br>
+                                {{ booking.flight.departure_airport }} → {{ booking.flight.arrival_airport }}
+                                <br>
+                                <small class="text-muted">{{ booking.booking_date|date:"M d, Y" }}</small>
+                            </li>
+                        {% endfor %}
+                        </ul>
+                    {% else %}
+                        <p>No recent bookings found.</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    {% else %}
+    <div class="row" id="register">
+        <div class="col-md-10 mx-auto">
+            <div class="card shadow">
+                <div class="card-body">
+                    <h2 class="card-title text-center mb-4">Corporate Account Registration</h2>
+                    <div class="alert alert-info">
+                        <h5 class="alert-heading">Registration Process</h5>
+                        <p>Please complete the form below to register your company. After submission:</p>
+                        <ol>
+                            <li>Our team will review your application within 1-2 business days</li>
+                            <li>We will verify your company details and requirements</li>
+                            <li>Once approved, we will send your login credentials to the provided email address</li>
+                        </ol>
+                    </div>
+                    <form method="post" action="{% url 'register_corporate_account' %}">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h4 class="mb-3">Company Information</h4>
+                                {{ account_form.as_p }}
+                            </div>
+                            <div class="col-md-6">
+                                <h4 class="mb-3">Primary Contact Information</h4>
+                                {{ contact_form.username.label_tag }}
+                                {{ contact_form.username }}
+                                <small class="text-muted d-block mb-3">This will be your username after approval</small>
+                                
+                                {{ contact_form.first_name.label_tag }}
+                                {{ contact_form.first_name }}
+                                
+                                {{ contact_form.last_name.label_tag }}
+                                {{ contact_form.last_name }}
+                                
+                                {{ contact_form.email.label_tag }}
+                                {{ contact_form.email }}
+                                <small class="text-muted d-block mb-3">Your login credentials will be sent to this email</small>
+                                
+                                {{ contact_form.phone.label_tag }}
+                                {{ contact_form.phone }}
+                                
+                                {{ contact_form.position.label_tag }}
+                                {{ contact_form.position }}
+                                
+                                {{ contact_form.department.label_tag }}
+                                {{ contact_form.department }}
+                            </div>
+                        </div>
+                        <div class="text-center mt-4">
+                            <button type="submit" class="btn btn-primary btn-lg">Submit Registration</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+</div>
+
+<div class="container my-5">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h3>Corporate Benefits</h3>
+                    <ul class="list-unstyled">
+                        <li>✓ Dedicated corporate travel desk</li>
+                        <li>✓ Priority booking and check-in</li>
+                        <li>✓ Corporate reward points</li>
+                        <li>✓ Flexible booking policies</li>
+                        <li>✓ Group travel discounts</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h3>Network Coverage</h3>
+                    <p>Connect to over 127 destinations worldwide through our hub in Addis Ababa.</p>
+                    <ul class="list-unstyled">
+                        <li>✓ Extensive African network</li>
+                        <li>✓ Major business destinations</li>
+                        <li>✓ Convenient connections</li>
+                        <li>✓ Cargo services</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h3>Why Choose Us</h3>
+                    <ul class="list-unstyled">
+                        <li>✓ Africa's largest airline</li>
+                        <li>✓ Modern fleet</li>
+                        <li>✓ Award-winning service</li>
+                        <li>✓ Competitive rates</li>
+                        <li>✓ 24/7 support</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} 
