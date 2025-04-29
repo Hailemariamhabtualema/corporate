@@ -1,3 +1,7 @@
+import sys
+print("Python Path:", sys.path)
+print("Python Version:", sys.version)
+
 from simple_salesforce import Salesforce
 from django.conf import settings
 from flight_booking.salesforce_config import (
