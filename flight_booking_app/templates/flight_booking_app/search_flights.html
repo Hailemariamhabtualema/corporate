@@ -1,0 +1,130 @@
+{% extends 'flight_booking_app/base.html' %}
+
+{% block title %}Search Flights - Ethiopian Corporate Sales{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-12 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title mb-4">Search Flights</h4>
+                    <form action="{% url 'search_flights' %}" method="GET" class="row g-3">
+                        {% for field in form %}
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="{{ field.id_for_label }}" class="form-label">{{ field.label }}</label>
+                                {{ field }}
+                                {% if field.help_text %}
+                                <small class="form-text text-muted">{{ field.help_text }}</small>
+                                {% endif %}
+                                {% if field.errors %}
+                                <div class="alert alert-danger mt-1">
+                                    {{ field.errors }}
+                                </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                        {% endfor %}
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-search"></i> Search Flights
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% if flights %}
+    <div class="row">
+        {% for flight in flights %}
+        <div class="col-md-6 mb-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-start mb-3">
+                        <div>
+                            <h5 class="card-title mb-0">Flight {{ flight.flight_number }}</h5>
+                            <small class="text-muted">Ethiopian Airlines</small>
+                        </div>
+                        <span class="badge bg-primary">{{ flight.available_seats }} seats left</span>
+                    </div>
+                    
+                    <div class="flight-route mb-4">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="text-center">
+                                <h6 class="mb-0">{{ flight.departure_airport.code }}</h6>
+                                <small class="text-muted">{{ flight.departure_airport.city }}</small>
+                                <div class="time">{{ flight.departure_time|date:"H:i" }}</div>
+                            </div>
+                            <div class="flex-grow-1 px-3 text-center">
+                                <i class="fas fa-plane" style="color: #078E53;"></i>
+                                <div class="flight-line"></div>
+                            </div>
+                            <div class="text-center">
+                                <h6 class="mb-0">{{ flight.arrival_airport.code }}</h6>
+                                <small class="text-muted">{{ flight.arrival_airport.city }}</small>
+                                <div class="time">{{ flight.arrival_time|date:"H:i" }}</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="price">
+                            <h4 class="mb-0 text-primary">${{ flight.price }}</h4>
+                            <small class="text-muted">per person</small>
+                        </div>
+                        <a href="{% url 'book_flight' flight.id %}" class="btn btn-primary">
+                            Book Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+        {% if form.is_bound %}
+        <div class="alert alert-info">
+            <i class="fas fa-info-circle"></i> No flights found for the selected criteria. Please try different dates or routes.
+        </div>
+        {% endif %}
+    {% endif %}
+</div>
+
+<style>
+.flight-line {
+    height: 2px;
+    background: #078E53;
+    margin-top: -10px;
+}
+.time {
+    font-weight: bold;
+    color: #333;
+}
+.card {
+    transition: transform 0.2s;
+    border: none;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+.card:hover {
+    transform: translateY(-5px);
+}
+.form-control:focus {
+    border-color: #078E53;
+    box-shadow: 0 0 0 0.2rem rgba(7,142,83,0.25);
+}
+.btn-primary {
+    background-color: #078E53;
+    border-color: #078E53;
+}
+.btn-primary:hover {
+    background-color: #056b3f;
+    border-color: #056b3f;
+}
+.badge.bg-primary {
+    background-color: #078E53 !important;
+}
+</style>
+{% endblock %} 
